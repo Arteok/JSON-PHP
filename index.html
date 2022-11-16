@@ -5,8 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <script type="text/javascript"> 
+        var xhttp = new XMLHttpRequest();
+
+        xhttp.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status == 200){//si el readystate es 4 y si el status es 200
+                console.log("Valor de la propiedad readyState: "+this.readyState);
+                console.log("Valor de la propiedad Status: "+this.status);
+                //console.log("Valor de la propiedad responseText: "+this.responseText);
+
+                var objetosJS = JSON.parse(xhttp.responseText);
+                console.log(objetosJS);
+                console.log(objetosJS.nombre);
+            }
+        };
+
+        xhttp.open("GET", "datos_en_json.txt", true);
+        xhttp.send();    
+    </script>
 </head>
 <body>
-    
+    <h2>Curso JSON</h2>
 </body>
-</html>
+</html> 
